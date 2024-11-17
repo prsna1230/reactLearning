@@ -2,6 +2,7 @@ import dummyData from "../commons/dummyData";
 import Resturantcard from "./ResturantCard";
 import { useState, useEffect } from "react";
 import { Shimmer } from "./Shimmer";
+import { RES_API_URL } from "../commons/constant";
 
 export default Body = () => {
   // const dummyResturants =
@@ -10,21 +11,22 @@ export default Body = () => {
 
   const [resturants, setResturants] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredRes, setFilteredRes] = useState([]);
   const [reset, setReset] = useState(false);
 
   const fetchData = async () => {
-    const res = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=9.9020616&lng=78.1171184&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const res = await fetch(RES_API_URL);
     const data = await res.json();
-    setResturants(
-      data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-    );
+    const resturant =
+      data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    setResturants(resturant);
+    setFilteredRes(resturant);
   };
 
   useEffect(() => {
     fetchData();
-  }, [searchTerm, reset]);
+  }, [reset]);
 
   const handleTopRated = () => {
     const topResturants = resturants.filter((res) => res.info.avgRating > 4.5);
@@ -32,20 +34,22 @@ export default Body = () => {
   };
 
   const handleReset = () => {
-    setReset(!reset);
     setSearchTerm("");
+    setReset(!reset);
   };
 
   const handleSearchTerm = (e) => {
+    // if (e.target.value === "") {
+    //   fetchData();
+    // }
     setSearchTerm(e.target.value);
-    if (e.target.value === "") {
-      setResturants(dummyResturants);
-    } else {
-      const searchedRestaurant = resturants.filter((res) =>
-        res.info.name.toLowerCase().includes(e.target.value.toLowerCase())
-      );
-      setResturants(searchedRestaurant);
-    }
+  };
+
+  const handleSearch = () => {
+    const searchedRestaurant = resturants.filter((res) =>
+      res.info.name.toLowerCase().includes(searchTerm)
+    );
+    setFilteredRes(searchedRestaurant);
   };
 
   return (
@@ -60,6 +64,9 @@ export default Body = () => {
           value={searchTerm}
           onChange={handleSearchTerm}
         />
+        <button className="search-btn" onClick={handleSearch}>
+          Search
+        </button>
         <button className="filter-btn" onClick={handleTopRated}>
           Top Rated Resturants
         </button>
@@ -70,8 +77,10 @@ export default Body = () => {
       <div className="res-container">
         {resturants.length === 0 ? (
           <Shimmer />
+        ) : filteredRes.length === 0 ? (
+          <h2>No Results found</h2>
         ) : (
-          resturants.map((resturant) => {
+          filteredRes.map((resturant) => {
             return (
               <Resturantcard resturant={resturant} key={resturant.info.id} />
             );
