@@ -10,9 +10,7 @@ const Resturantcard = ({ resturant }) => {
   return (
     <div className="res-card">
       <img className="res-image" src={CDN_URL + cloudinaryImageId} />
-      <h3 className="res-name">
-        <a href={cta.link}>{name}</a>
-      </h3>
+      <h3 className="res-name">{name}</h3>
       <h4 className="res-cusines">{cuisines.join(",")}</h4>
       <div className="res-inner">
         <h5 className="res-locality">{locality}</h5>

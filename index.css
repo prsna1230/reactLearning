@@ -65,6 +65,7 @@
 .res-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .res-cusines {
@@ -118,7 +119,7 @@
   font-size: 20px;
   margin: 10px;
   padding: 10px;
-  width: 300px;
+  width: 50%;
 }
 
 .shimmer-container {
@@ -176,4 +177,101 @@
   cursor: pointer;
   margin: 4px;
   padding: 10px;
+}
+
+.res-info {
+  width: 50%;
+  margin: auto;
+}
+
+.resturant-name {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.res-common-info {
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.res-common-info-left {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.res-common-info-right {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.res-rating {
+  display: flex;
+  justify-self: start;
+}
+
+.res-rating-text {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.res-rating-number {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.res-rating-star,
+.down-arrow {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.res-cuisines {
+  color: peru;
+}
+
+.res-address {
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.res-cost,
+.res-delivery-time {
+  font-size: 20px;
+  color: #3037bd;
+}
+
+.resturant-menu {
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.resturant-dropdown {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resturant-categories {
+  font-style: italic;
+}
+
+.menu-dropdown {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 30px;
+}
+
+.item-price {
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.res-rating-star {
+  display: inline-block;
+}
+
+.item-rating {
+  font-size: 20px;
 }

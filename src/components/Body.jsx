@@ -30,7 +30,7 @@ export default Body = () => {
 
   const handleTopRated = () => {
     const topResturants = resturants.filter((res) => res.info.avgRating > 4.5);
-    setResturants(topResturants);
+    setFilteredRes(topResturants);
   };
 
   const handleReset = () => {
