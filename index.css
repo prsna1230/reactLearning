@@ -1,15 +1,24 @@
-* {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.down-arrow {
+  margin-right: 10px;
+  width: 30px;
 }
 
 .filter {
   padding: 10px;
 }
 
-.search-btn,
-.filter-btn {
+.filter-btn,
+.search-btn {
   background-color: #2a79c8;
   border: none;
   border-radius: 10px;
@@ -26,6 +35,27 @@
   padding: 0 20px;
 }
 
+.item-price {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.item-rating {
+  margin-top: 10px;
+  display: flex;
+  font-size: 20px;
+}
+
+.login-btn {
+  background-color: #2a79c8;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  margin: 4px;
+  padding: 10px;
+}
+
 .logo {
   border-radius: 10px;
   width: 100px;
@@ -35,6 +65,17 @@
   align-items: center;
   display: flex;
   gap: 10px;
+}
+
+.menu-dropdown {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .nav-items {
@@ -47,6 +88,11 @@
   font-size: 24px;
   gap: 40px;
   list-style-type: none;
+}
+
+.res-address {
+  font-size: 15px;
+  margin-top: 10px;
 }
 
 .res-card {
@@ -62,10 +108,38 @@
   cursor: pointer;
 }
 
+.res-common-info {
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+}
+
+.res-common-info-left {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.res-common-info-right {
+  margin-top: 10px;
+  padding: 10px;
+}
+
 .res-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.res-cost,
+.res-delivery-time {
+  color: #3037bd;
+  font-size: 20px;
+}
+
+.res-cuisines {
+  color: peru;
 }
 
 .res-cusines {
@@ -77,8 +151,8 @@
 }
 
 .res-cusines,
-.res-rating,
-.res-locality {
+.res-locality,
+.res-rating {
   font-size: 15px;
   padding: 10px;
 }
@@ -87,6 +161,11 @@
   border-radius: 10px 10px 0 0;
   height: 150px;
   width: 100%;
+}
+
+.res-info {
+  margin: auto;
+  width: 50%;
 }
 
 .res-inner {
@@ -109,8 +188,43 @@
 }
 
 .res-rating {
-  font-size: 15px;
+  display: flex;
+  justify-self: start;
+}
+
+.res-rating-number {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.res-rating-star {
+  display: inline-block;
+  margin-right: 10px;
+  width: 30px;
+}
+
+.res-rating-text {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.resturant-categories {
+  font-style: italic;
+}
+
+.resturant-dropdown {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resturant-menu {
+  margin-top: 30px;
   padding: 10px;
+}
+
+.resturant-name {
+  margin-bottom: 50px;
+  margin-top: 100px;
 }
 
 .search-input {
@@ -122,11 +236,15 @@
   width: 50%;
 }
 
-.shimmer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-repeat: repeat;
+.shimmer-btn {
+  background-color: #bdc4cc;
+  border: none;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100px;
 }
 
 .shimmer-card {
@@ -137,18 +255,11 @@
   width: 250px;
 }
 
-.shimmer-img {
-  border-radius: 10px 10px 0 0;
-  height: 150px;
-  width: 100%;
-  background-color: #bdc4cc;
-}
-
-.shimmer-text {
-  background-color: #bdc4cc;
-  height: 20px;
-  margin-top: 10px;
-  width: 80%;
+.shimmer-container {
+  background-repeat: repeat;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .shimmer-desp {
@@ -158,120 +269,53 @@
   width: 50%;
 }
 
-.shimmer-btn {
+.shimmer-img {
   background-color: #bdc4cc;
-  border: none;
-  border-radius: 10px;
-  display: block;
-  margin-left: auto;
-  padding: 10px;
-  margin-top: 10px;
-  width: 100px;
+  border-radius: 10px 10px 0 0;
+  height: 150px;
+  width: 100%;
 }
 
-.login-btn {
-  background-color: #2a79c8;
-  border: none;
+.shimmer-text {
+  background-color: #bdc4cc;
+  height: 20px;
+  margin-top: 10px;
+  width: 80%;
+}
+
+.item-image {
   border-radius: 10px;
-  color: white;
+  width: 250px;
+}
+
+.user-card {
+  margin: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  width: 40%;
+}
+
+.no-underline {
+  text-decoration: none;
+  color: black;
   cursor: pointer;
-  margin: 4px;
-  padding: 10px;
 }
 
-.res-info {
-  width: 50%;
-  margin: auto;
+.no-underline:hover {
+  border-bottom: 2px solid black;
+  color: black;
+  border-radius: 2px;
 }
 
-.resturant-name {
-  margin-top: 100px;
-  margin-bottom: 50px;
+.login {
+  border: 1.5px solid #2a79c8;
+  border-radius: 10px;
+  padding: 50px;
+  margin-top: 20px;
 }
 
-.res-common-info {
-  border: 1px solid black;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.res-common-info-left {
-  margin-top: 10px;
-  padding: 10px;
-}
-
-.res-common-info-right {
-  margin-top: 10px;
-  padding: 10px;
-}
-
-.res-rating {
-  display: flex;
-  justify-self: start;
-}
-
-.res-rating-text {
-  font-size: 30px;
-  margin-right: 10px;
-}
-
-.res-rating-number {
-  font-size: 20px;
-  margin-top: 5px;
-}
-
-.res-rating-star,
-.down-arrow {
-  width: 30px;
-  margin-right: 10px;
-}
-
-.res-cuisines {
-  color: peru;
-}
-
-.res-address {
-  font-size: 15px;
-  margin-top: 10px;
-}
-
-.res-cost,
-.res-delivery-time {
-  font-size: 20px;
-  color: #3037bd;
-}
-
-.resturant-menu {
-  margin-top: 30px;
-  padding: 10px;
-}
-
-.resturant-dropdown {
-  display: flex;
-  justify-content: space-between;
-}
-
-.resturant-categories {
-  font-style: italic;
-}
-
-.menu-dropdown {
-  border: 1px solid black;
-  margin-bottom: 10px;
-  padding: 30px;
-}
-
-.item-price {
-  margin-top: 5px;
-  font-size: 20px;
-}
-
-.res-rating-star {
-  display: inline-block;
-}
-
-.item-rating {
-  font-size: 20px;
-}
+.login-email,
+.login-password {
+  border: 1.5px solid #2a79c8;
+} */

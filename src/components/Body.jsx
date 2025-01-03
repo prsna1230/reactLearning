@@ -39,9 +39,9 @@ export default Body = () => {
   };
 
   const handleSearchTerm = (e) => {
-    // if (e.target.value === "") {
-    //   fetchData();
-    // }
+    if (e.target.value === "") {
+      fetchData();
+    }
     setSearchTerm(e.target.value);
   };
 
@@ -53,28 +53,37 @@ export default Body = () => {
   };
 
   return (
-    <div className="body">
+    <div className="body mx-auto block">
       <div className="filter">
         <input
           type="text"
           name="search"
           id="search"
-          className="search-input"
+          className="search-input border-2 p-1 w-3/5 rounded-md m-3 outline-red-400"
           placeholder="Search restaurants..."
           value={searchTerm}
           onChange={handleSearchTerm}
         />
-        <button className="search-btn" onClick={handleSearch}>
+        <button
+          className="bg-violet-400 px-3 py-1 rounded-md hover:bg-violet-800 text-white me-4"
+          onClick={handleSearch}
+        >
           Search
         </button>
-        <button className="filter-btn" onClick={handleTopRated}>
+        <button
+          className="filter-btn bg-green-400 px-3 py-1 rounded-md hover:bg-green-800 text-white me-4"
+          onClick={handleTopRated}
+        >
           Top Rated Resturants
         </button>
-        <button className="filter-btn" onClick={handleReset}>
+        <button
+          className="filter-btn bg-red-400 px-3 py-1 rounded-md hover:bg-red-800 text-white"
+          onClick={handleReset}
+        >
           Reset
         </button>
       </div>
-      <div className="res-container">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 ">
         {resturants.length === 0 ? (
           <Shimmer />
         ) : filteredRes.length === 0 ? (
